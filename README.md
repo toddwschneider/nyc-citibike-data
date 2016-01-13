@@ -1,6 +1,6 @@
 # NYC Citi Bike Data
 
-Code in support of this post: []()
+Code in support of this post: [A Tale of Twenty-Two Million Citi Bikes: Analyzing the NYC Bike Share System](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/)
 
 This repo provides scripts to download, process, and analyze data for NYC's [Citi Bike system data](https://www.citibikenyc.com/system-data). The data is stored in a [PostgreSQL](http://www.postgresql.org/) database, uses [PostGIS](http://postgis.net/) for spatial calculations, and [R](https://www.r-project.org/) for data analysis.
 
