@@ -27,3 +27,10 @@ https://s3.amazonaws.com/tripdata/201508-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201509-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201510-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201511-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201512-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201601-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201602-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201603-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201604-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201605-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201606-citibike-tripdata.zip

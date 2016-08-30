@@ -28,7 +28,7 @@ class Trip < ActiveRecord::Base
   end
 
   def fetch_directions_json
-    JSON.parse(RestClient.get(google_url))
+    JSON.parse(RestClient.get(google_directions_url))
   end
 
   def convert_directions_to_line_segments(options = {})
