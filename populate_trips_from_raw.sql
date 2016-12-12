@@ -1,3 +1,10 @@
+ALTER TABLE trips_raw 
+ALTER COLUMN start_time 
+TYPE TIMESTAMP using to_timestamp(start_time, 'MM/DD/YYYY HH24:MI');
+ALTER TABLE trips_raw 
+ALTER COLUMN stop_time 
+TYPE TIMESTAMP using to_timestamp(stop_time, 'MM/DD/YYYY HH24:MI');
+
 INSERT INTO stations (id, name, latitude, longitude)
 SELECT DISTINCT start_station_id, start_station_name, start_station_latitude, start_station_longitude
 FROM trips_raw

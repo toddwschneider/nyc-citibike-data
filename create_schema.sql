@@ -2,8 +2,8 @@ CREATE EXTENSION postgis;
 
 CREATE TABLE trips_raw (
   trip_duration numeric,
-  start_time timestamp without time zone,
-  stop_time timestamp without time zone,
+  start_time varchar,   -- modified to timestamp in populate_trips_from_raw.sql
+  stop_time varchar,    -- modified to timestamp in populate_trips_from_raw.sql
   start_station_id integer,
   start_station_name varchar,
   start_station_latitude numeric,
