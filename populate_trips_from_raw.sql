@@ -35,4 +35,5 @@ SELECT
   NULLIF(birth_year, '')::int, NULLIF(gender, '')::int
 FROM trips_raw;
 
-TRUNCATE TABLE trips_raw;
+---TRUNCATE TABLE trips_raw;
+DROP TABLE trips_raw;
