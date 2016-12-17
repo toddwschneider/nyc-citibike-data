@@ -21,6 +21,13 @@ FROM nyct2010 n
 WHERE stations.nyct2010_gid IS NULL
   AND ST_Within(stations.geom, n.geom);
 
+UPDATE stations
+SET taxi_zone_gid = z.gid,
+    taxi_zone_name = z.zone
+FROM taxi_zones z
+WHERE stations.taxi_zone_gid IS NULL
+  AND ST_Within(stations.geom, z.geom);
+
 INSERT INTO trips
 (trip_duration, start_time, stop_time, start_station_id, end_station_id, bike_id, user_type, birth_year, gender)
 SELECT 
