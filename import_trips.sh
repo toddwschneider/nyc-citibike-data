@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for filename in data/*.csv; do
+for filename in data/20*.csv; do
   echo "`date`: beginning load for ${filename}"
 
   sed $'s/\\\N//' "${filename}" | psql nyc-citibike-data -c "SET datestyle = 'ISO, MDY'; COPY trips_raw FROM stdin CSV HEADER;"
