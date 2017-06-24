@@ -32,7 +32,8 @@ CREATE TABLE trips (
 );
 
 CREATE TABLE stations (
-  id integer primary key,
+  id serial primary key,
+  external_id integer,
   name varchar,
   latitude numeric,
   longitude numeric,
@@ -43,6 +44,8 @@ CREATE TABLE stations (
   taxi_zone_gid integer,
   taxi_zone_name varchar
 );
+
+CREATE UNIQUE INDEX idx_stations_unique ON stations (external_id, latitude, longitude);
 
 SELECT AddGeometryColumn('stations', 'geom', 4326, 'POINT', 2);
 CREATE INDEX idx_stations_on_geom ON stations USING gist (geom);
