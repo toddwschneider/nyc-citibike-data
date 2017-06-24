@@ -40,3 +40,6 @@ https://s3.amazonaws.com/tripdata/201609-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201610-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201611-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/201612-citibike-tripdata.zip
+https://s3.amazonaws.com/tripdata/201701-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/201702-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/201703-citibike-tripdata.csv.zip
