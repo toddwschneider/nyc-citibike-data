@@ -34,15 +34,15 @@ WHERE stations.taxi_zone_gid IS NULL
 
 INSERT INTO trips
 (trip_duration, start_time, stop_time, start_station_id, end_station_id, bike_id, user_type, birth_year, gender)
-SELECT 
+SELECT
   trip_duration,
   start_time,
   stop_time,
   ss.id,
   es.id,
   bike_id, user_type,
-  NULLIF(birth_year, '')::int,
-  NULLIF(gender, '')::int
+  NULLIF(NULLIF(birth_year, ''), 'NULL')::int,
+  NULLIF(NULLIF(gender, ''), 'NULL')::int
 FROM trips_raw t
   INNER JOIN stations ss
     ON t.start_station_id = ss.external_id
