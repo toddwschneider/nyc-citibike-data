@@ -1,16 +1,14 @@
 # NYC Citi Bike Data
 
-Code in support of this post: [A Tale of Twenty-Two Million Citi Bikes: Analyzing the NYC Bike Share System](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/)
+Code originally in support of the post ["A Tale of Twenty-Two Million Citi Bike Rides: Analyzing the NYC Bike Share System"](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/). Also used in conjunction with the [nyc-taxi-data repo](https://github.com/toddwschneider/nyc-taxi-data) for the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
 
-This repo provides scripts to download, process, and analyze data for NYC's [Citi Bike system data](https://www.citibikenyc.com/system-data). The data is stored in a [PostgreSQL](http://www.postgresql.org/) database, uses [PostGIS](http://postgis.net/) for spatial calculations, and [R](https://www.r-project.org/) for data analysis.
-
-Pretty much a copy of [the taxi/Uber data repo](https://github.com/toddwschneider/nyc-taxi-data), at some point the Citi Bike, taxi, and Uber datasets could probably be combined into a single unified NYC transit database...
+This repo provides scripts to download, process, and analyze NYC's [Citi Bike share system data](https://www.citibikenyc.com/system-data). The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, uses [PostGIS](https://postgis.net/) for spatial calculations, and [R](https://www.r-project.org/) for data analysis.
 
 ## Instructions
 
-##### 1. Install [PostgreSQL](http://www.postgresql.org/download/) and [PostGIS](http://postgis.net/install)
+##### 1. Install [PostgreSQL](https://www.postgresql.org/download/) and [PostGIS](https://postgis.net/install)
 
-Both are available via [Homebrew](http://brew.sh/) on Mac OS X
+Both are available via [Homebrew](https://brew.sh/) on Mac
 
 ##### 2. Download raw taxi data
 
@@ -33,7 +31,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 These are bundled with the repository, so no need to download separately, but:
 
 - Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml)
-- Central Park weather data comes from the [National Climatic Data Center](http://www.ncdc.noaa.gov/)
+- Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/)
 
 ## Questions/issues/contact
 

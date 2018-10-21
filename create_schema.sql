@@ -5,17 +5,17 @@ CREATE TABLE trips_raw (
   start_time timestamp without time zone,
   stop_time timestamp without time zone,
   start_station_id integer,
-  start_station_name varchar,
+  start_station_name text,
   start_station_latitude numeric,
   start_station_longitude numeric,
   end_station_id integer,
-  end_station_name varchar,
+  end_station_name text,
   end_station_latitude numeric,
   end_station_longitude numeric,
   bike_id integer,
-  user_type varchar,
-  birth_year varchar,
-  gender varchar
+  user_type text,
+  birth_year text,
+  gender text
 );
 
 CREATE TABLE trips (
@@ -26,7 +26,7 @@ CREATE TABLE trips (
   start_station_id integer,
   end_station_id integer,
   bike_id integer,
-  user_type varchar,
+  user_type text,
   birth_year integer,
   gender integer
 );
@@ -34,21 +34,21 @@ CREATE TABLE trips (
 CREATE TABLE stations (
   id serial primary key,
   external_id integer,
-  name varchar,
+  name text,
   latitude numeric,
   longitude numeric,
   nyct2010_gid integer,
-  boroname varchar,
-  ntacode varchar,
-  ntaname varchar,
+  boroname text,
+  ntacode text,
+  ntaname text,
   taxi_zone_gid integer,
-  taxi_zone_name varchar
+  taxi_zone_name text
 );
 
-CREATE UNIQUE INDEX idx_stations_unique ON stations (external_id, latitude, longitude);
+CREATE UNIQUE INDEX ON stations (external_id, latitude, longitude);
 
 SELECT AddGeometryColumn('stations', 'geom', 4326, 'POINT', 2);
-CREATE INDEX idx_stations_on_geom ON stations USING gist (geom);
+CREATE INDEX ON stations USING gist (geom);
 
 CREATE VIEW trips_and_stations AS (
   SELECT
@@ -77,9 +77,9 @@ CREATE VIEW trips_and_stations AS (
 );
 
 CREATE TABLE central_park_weather_observations (
-  station_id varchar,
-  station_name varchar,
-  date date,
+  station_id text,
+  station_name text,
+  date date primary key,
   precipitation numeric,
   snow_depth numeric,
   snowfall numeric,
@@ -87,5 +87,3 @@ CREATE TABLE central_park_weather_observations (
   min_temperature numeric,
   average_wind_speed numeric
 );
-
-CREATE UNIQUE INDEX index_weather_observations ON central_park_weather_observations (date);
