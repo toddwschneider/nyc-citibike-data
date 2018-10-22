@@ -13,5 +13,6 @@ psql nyc-citibike-data -c "CREATE INDEX index_taxi_zones_on_geom ON taxi_zones U
 psql nyc-citibike-data -c "CREATE INDEX index_taxi_zones_on_locationid ON taxi_zones (locationid);"
 psql nyc-citibike-data -c "VACUUM ANALYZE taxi_zones;"
 
-cat data/central_park_weather.csv | psql nyc-citibike-data -c "COPY central_park_weather_observations FROM stdin WITH CSV HEADER;"
+weather_schema="station_id, station_name, date, average_wind_speed, precipitation, snowfall, snow_depth, max_temperature, min_temperature"
+cat data/central_park_weather.csv | psql nyc-citibike-data -c "COPY central_park_weather_observations (${weather_schema}) FROM stdin WITH CSV HEADER;"
 psql nyc-citibike-data -c "UPDATE central_park_weather_observations SET average_wind_speed = NULL WHERE average_wind_speed = -9999;"
