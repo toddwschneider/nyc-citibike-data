@@ -1,6 +1,6 @@
 # NYC Citi Bike Data
 
-Code originally in support of the post ["A Tale of Twenty-Two Million Citi Bike Rides: Analyzing the NYC Bike Share System"](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/). Also used in conjunction with the [nyc-taxi-data repo](https://github.com/toddwschneider/nyc-taxi-data) for the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
+Code originally in support of the post ["A Tale of Twenty-Two Million Citi Bike Rides: Analyzing the NYC Bike Share System"](https://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/). Also used in conjunction with the [nyc-taxi-data repo](https://github.com/toddwschneider/nyc-taxi-data) for the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
 
 This repo provides scripts to download, process, and analyze NYC's [Citi Bike share system data](https://www.citibikenyc.com/system-data). The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, uses [PostGIS](https://postgis.net/) for spatial calculations, and [R](https://www.r-project.org/) for data analysis.
 
