@@ -1,6 +1,6 @@
 # NYC Citi Bike Data
 
-Code originally in support of the post ["A Tale of Twenty-Two Million Citi Bike Rides: Analyzing the NYC Bike Share System"](http://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/). Also used in conjunction with the [nyc-taxi-data repo](https://github.com/toddwschneider/nyc-taxi-data) for the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](http://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
+Code originally in support of the post ["A Tale of Twenty-Two Million Citi Bike Rides: Analyzing the NYC Bike Share System"](https://toddwschneider.com/posts/a-tale-of-twenty-two-million-citi-bikes-analyzing-the-nyc-bike-share-system/). Also used in conjunction with the [nyc-taxi-data repo](https://github.com/toddwschneider/nyc-taxi-data) for the post ["When Are Citi Bikes Faster Than Taxis in New York City?"](https://toddwschneider.com/posts/taxi-vs-citi-bike-nyc/)
 
 This repo provides scripts to download, process, and analyze NYC's [Citi Bike share system data](https://www.citibikenyc.com/system-data). The data is stored in a [PostgreSQL](https://www.postgresql.org/) database, uses [PostGIS](https://postgis.net/) for spatial calculations, and [R](https://www.r-project.org/) for data analysis.
 
@@ -30,7 +30,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 
 These are bundled with the repository, so no need to download separately, but:
 
-- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml)
+- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [NYC Planning](https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page)
 - Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/)
 
 ## Questions/issues/contact

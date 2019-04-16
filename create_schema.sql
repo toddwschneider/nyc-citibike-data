@@ -31,9 +31,24 @@ CREATE TABLE trips (
   gender integer
 );
 
+CREATE TABLE dockless_trips (
+  id serial primary key,
+  trip_duration numeric,
+  start_time timestamp without time zone,
+  stop_time timestamp without time zone,
+  start_latitude numeric,
+  start_longitude numeric,
+  end_latitude numeric,
+  end_longitude numeric,
+  bike_id integer,
+  user_type text,
+  birth_year integer,
+  gender integer
+);
+
 CREATE TABLE stations (
   id serial primary key,
-  external_id integer,
+  external_id integer not null,
   name text,
   latitude numeric,
   longitude numeric,
