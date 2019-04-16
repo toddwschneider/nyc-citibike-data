@@ -30,7 +30,7 @@ Additional Postgres and [R](https://www.r-project.org/) scripts for analysis are
 
 These are bundled with the repository, so no need to download separately, but:
 
-- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [Bytes of the Big Apple](http://www.nyc.gov/html/dcp/html/bytes/districts_download_metadata.shtml)
+- Shapefile for NYC census tracts and neighborhood tabulation areas comes from [NYC Planning](https://www1.nyc.gov/site/planning/data-maps/open-data/districts-download-metadata.page)
 - Central Park weather data comes from the [National Climatic Data Center](https://www.ncdc.noaa.gov/)
 
 ## Questions/issues/contact
