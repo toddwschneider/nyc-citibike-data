@@ -83,3 +83,8 @@ https://s3.amazonaws.com/tripdata/202004-citibike-tripdata.csv.zip
 https://s3.amazonaws.com/tripdata/202005-citibike-tripdata.csv.zip
 https://s3.amazonaws.com/tripdata/202006-citibike-tripdata.csv.zip
 https://s3.amazonaws.com/tripdata/202007-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202008-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202009-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202010-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202011-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202012-citibike-tripdata.csv.zip
