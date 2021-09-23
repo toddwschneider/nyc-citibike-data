@@ -2,8 +2,8 @@ INSERT INTO stations (external_id, name, latitude, longitude)
 SELECT DISTINCT
   start_station_id,
   start_station_name,
-  NULLIF(ROUND(start_station_latitude, 6), 0),
-  NULLIF(ROUND(start_station_longitude, 6), 0)
+  NULLIF(ROUND(start_station_latitude, 5), 0),
+  NULLIF(ROUND(start_station_longitude, 5), 0)
 FROM trips_raw
 WHERE start_station_id IS NOT NULL
 ON CONFLICT DO NOTHING;
@@ -12,8 +12,8 @@ INSERT INTO stations (external_id, name, latitude, longitude)
 SELECT DISTINCT
   end_station_id,
   end_station_name,
-  NULLIF(ROUND(end_station_latitude, 6), 0),
-  NULLIF(ROUND(end_station_longitude, 6), 0)
+  NULLIF(ROUND(end_station_latitude, 5), 0),
+  NULLIF(ROUND(end_station_longitude, 5), 0)
 FROM trips_raw
 WHERE end_station_id IS NOT NULL
 ON CONFLICT DO NOTHING;
@@ -53,12 +53,12 @@ SELECT
 FROM trips_raw t
   INNER JOIN stations ss
     ON t.start_station_id = ss.external_id
-    AND ROUND(t.start_station_longitude, 6) = ss.longitude
-    AND ROUND(t.start_station_latitude, 6) = ss.latitude
+    AND ROUND(t.start_station_longitude, 5) = ss.longitude
+    AND ROUND(t.start_station_latitude, 5) = ss.latitude
   INNER JOIN stations es
     ON t.end_station_id = es.external_id
-    AND ROUND(t.end_station_longitude, 6) = es.longitude
-    AND ROUND(t.end_station_latitude, 6) = es.latitude
+    AND ROUND(t.end_station_longitude, 5) = es.longitude
+    AND ROUND(t.end_station_latitude, 5) = es.latitude
 WHERE t.start_station_id IS NOT NULL
   AND t.end_station_id IS NOT NULL;
 

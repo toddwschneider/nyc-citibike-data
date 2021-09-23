@@ -1,21 +1,23 @@
-CREATE EXTENSION postgis;
+CREATE EXTENSION IF NOT EXISTS postgis;
 
 CREATE TABLE trips_raw (
   trip_duration numeric,
   start_time timestamp without time zone,
   stop_time timestamp without time zone,
-  start_station_id integer,
+  start_station_id text,
   start_station_name text,
   start_station_latitude numeric,
   start_station_longitude numeric,
-  end_station_id integer,
+  end_station_id text,
   end_station_name text,
   end_station_latitude numeric,
   end_station_longitude numeric,
   bike_id integer,
   user_type text,
   birth_year text,
-  gender text
+  gender text,
+  ride_id text,
+  rideable_type text
 );
 
 CREATE TABLE trips (
@@ -28,7 +30,9 @@ CREATE TABLE trips (
   bike_id integer,
   user_type text,
   birth_year integer,
-  gender integer
+  gender integer,
+  ride_id text,
+  rideable_type text
 );
 
 CREATE TABLE dockless_trips (
@@ -43,12 +47,14 @@ CREATE TABLE dockless_trips (
   bike_id integer,
   user_type text,
   birth_year integer,
-  gender integer
+  gender integer,
+  ride_id text,
+  rideable_type text
 );
 
 CREATE TABLE stations (
   id serial primary key,
-  external_id integer not null,
+  external_id text not null,
   name text,
   latitude numeric,
   longitude numeric,
