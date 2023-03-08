@@ -1,7 +1,7 @@
 .Rapp.history
 .DS_Store
 ggmapTemp.png
-data/*citibike-tripdata*.zip
+data/*tripdata*.zip
 data/*tripdata*.csv
 data/*trip data*.csv
 __MACOSX/
