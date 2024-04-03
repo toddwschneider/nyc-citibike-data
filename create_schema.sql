@@ -25,8 +25,8 @@ CREATE TABLE trips (
   trip_duration numeric,
   start_time timestamp without time zone,
   stop_time timestamp without time zone,
-  start_station_id integer,
-  end_station_id integer,
+  start_station_id text,
+  end_station_id text,
   bike_id integer,
   user_type text,
   birth_year integer,
@@ -53,9 +53,8 @@ CREATE TABLE dockless_trips (
 );
 
 CREATE TABLE stations (
-  id serial primary key,
-  external_id text not null,
-  name text,
+  normalized_id text primary key,
+  name text not null,
   latitude numeric,
   longitude numeric,
   nyct2010_gid integer,
@@ -65,8 +64,6 @@ CREATE TABLE stations (
   taxi_zone_gid integer,
   taxi_zone_name text
 );
-
-CREATE UNIQUE INDEX ON stations (external_id, latitude, longitude);
 
 SELECT AddGeometryColumn('stations', 'geom', 4326, 'POINT', 2);
 CREATE INDEX ON stations USING gist (geom);
@@ -93,8 +90,8 @@ CREATE VIEW trips_and_stations AS (
     es.taxi_zone_gid AS end_taxi_zone_gid,
     es.taxi_zone_name AS end_taxi_zone_name
   FROM trips t
-    INNER JOIN stations ss ON t.start_station_id = ss.id
-    INNER JOIN stations es ON t.end_station_id = es.id
+    INNER JOIN stations ss ON t.start_station_id = ss.normalized_id
+    INNER JOIN stations es ON t.end_station_id = es.normalized_id
 );
 
 CREATE TABLE central_park_weather_observations (
@@ -108,3 +105,14 @@ CREATE TABLE central_park_weather_observations (
   min_temperature numeric,
   average_wind_speed numeric
 );
+
+CREATE OR REPLACE FUNCTION normalize_station_id(station_id text, start_time timestamp without time zone) RETURNS text
+  LANGUAGE SQL
+  IMMUTABLE
+  RETURNS NULL ON NULL INPUT
+  RETURN
+    CASE
+      WHEN start_time >= '2021-02-01'
+      THEN regexp_replace(station_id, '^(\d+\.\d)$', '\1' || '0')
+      ELSE regexp_replace(station_id, '\.00?$', '')
+    END;

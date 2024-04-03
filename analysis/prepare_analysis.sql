@@ -1,3 +1,8 @@
+/*
+Note: the database schema has changed a bit since this script was first written,
+and I have not updated the code in this file to adapt to the new schema
+*/
+
 CREATE TABLE station_to_station_counts AS
 SELECT start_station_id, end_station_id, COUNT(*) AS count
 FROM trips

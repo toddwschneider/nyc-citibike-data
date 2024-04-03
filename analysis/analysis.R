@@ -1,3 +1,6 @@
+# Note: the database schema has changed a bit since this script was first written,
+# and I have not updated the code in this file to adapt to the new schema
+
 library(ggplot2)
 library(dplyr)
 library(reshape2)
