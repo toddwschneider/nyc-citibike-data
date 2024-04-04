@@ -1,52 +1,9 @@
-INSERT INTO stations (normalized_id, name, latitude, longitude)
-WITH counts AS (
-  SELECT
-    normalize_station_id(end_station_id, start_time) AS normalized_id,
-    end_station_name,
-    nullif(round(end_station_latitude, 4), 0) AS rounded_latitude,
-    nullif(round(end_station_longitude, 4), 0) AS rounded_longitude,
-    count(*) AS trips
-  FROM trips_raw
-  WHERE end_station_id IS NOT NULL
-  GROUP BY normalized_id, end_station_name, rounded_latitude, rounded_longitude
-)
-SELECT DISTINCT ON (normalized_id)
-  normalized_id,
-  end_station_name AS name,
-  rounded_latitude AS latitude,
-  rounded_longitude AS longitude
-FROM counts
-ORDER BY normalized_id, trips DESC, end_station_name, rounded_latitude, rounded_longitude
-ON CONFLICT (normalized_id) DO UPDATE
-  SET name = EXCLUDED.name,
-      latitude = EXCLUDED.latitude,
-      longitude = EXCLUDED.longitude;
-
-INSERT INTO stations (normalized_id, name, latitude, longitude)
-WITH counts AS (
-  SELECT
-    normalize_station_id(start_station_id, start_time) AS normalized_id,
-    start_station_name,
-    nullif(round(start_station_latitude, 4), 0) AS rounded_latitude,
-    nullif(round(start_station_longitude, 4), 0) AS rounded_longitude,
-    count(*) AS trips
-  FROM trips_raw
-  WHERE start_station_id IS NOT NULL
-  GROUP BY normalized_id, start_station_name, rounded_latitude, rounded_longitude
-)
-SELECT DISTINCT ON (normalized_id)
-  normalized_id,
-  start_station_name AS name,
-  rounded_latitude AS latitude,
-  rounded_longitude AS longitude
-FROM counts
-ORDER BY normalized_id, trips DESC, start_station_name, rounded_latitude, rounded_longitude
-ON CONFLICT DO NOTHING;
-
 INSERT INTO trips
 (
   trip_duration, start_time, stop_time, start_station_id, end_station_id,
-  bike_id, user_type, birth_year, gender, ride_id, rideable_type
+  bike_id, user_type, birth_year, gender, ride_id, rideable_type,
+  start_station_name, end_station_name, start_latitude, start_longitude,
+  end_latitude, end_longitude
 )
 SELECT
   trip_duration,
@@ -59,7 +16,13 @@ SELECT
   nullif(nullif(birth_year, ''), 'NULL')::numeric::int AS birth_year,
   nullif(nullif(gender, ''), 'NULL')::numeric::int AS gender,
   ride_id,
-  rideable_type
+  rideable_type,
+  start_station_name,
+  end_station_name,
+  nullif(start_station_latitude, 0) AS start_latitude,
+  nullif(start_station_longitude, 0) AS start_longitude,
+  nullif(end_station_latitude, 0) AS end_latitude,
+  nullif(end_station_longitude, 0) AS end_longitude
 FROM trips_raw
 WHERE start_station_id IS NOT NULL
   AND end_station_id IS NOT NULL;

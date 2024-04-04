@@ -36,4 +36,7 @@ for filename in data/2024*tripdata*.csv; do
   echo "`date`: loaded trips for ${filename}"
 done;
 
+psql nyc-citibike-data -f create_indexes.sql
+
+psql nyc-citibike-data -f add_calculated_stations_data.sql
 psql nyc-citibike-data -f map_stations_to_geos.sql
