@@ -11,3 +11,4 @@ https://s3.amazonaws.com/tripdata/2022-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/2023-citibike-tripdata.zip
 https://s3.amazonaws.com/tripdata/202401-citibike-tripdata.csv.zip
 https://s3.amazonaws.com/tripdata/202402-citibike-tripdata.csv.zip
+https://s3.amazonaws.com/tripdata/202403-citibike-tripdata.csv.zip
