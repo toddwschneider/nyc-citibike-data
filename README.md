@@ -10,7 +10,7 @@ This repo provides scripts to download, process, and analyze NYC's [Citi Bike sh
 
 Both are available via [Homebrew](https://brew.sh/) on Mac
 
-##### 2. Download raw taxi data
+##### 2. Download raw bike trips data
 
 `./download_raw_data.sh`
 
@@ -18,7 +18,7 @@ Both are available via [Homebrew](https://brew.sh/) on Mac
 
 `./initialize_database.sh`
 
-##### 4. Import taxi data into database and map to census tracts
+##### 4. Import bike trips data into database and map to census tracts
 
 `./import_trips.sh`
 
